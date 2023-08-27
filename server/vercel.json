@@ -1,9 +1,8 @@
 {
     "version": 2,
-    "name": "Shopping-App",
     "builds": [
         {
-            "src": "app.js",
+            "src": "index.js",
             "use": "@vercel/node"
         }
     ],
