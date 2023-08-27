@@ -1,0 +1,39 @@
+.myitem:hover{
+  cursor: pointer;
+  box-shadow: 0px 0px 5px skyblue;
+}
+.item {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.btn {
+  position: relative;
+  background: #2898F3;
+  color: white;
+  text-decoration: none;
+  padding: 14px 28px;
+  display: inline-block;
+  border-radius: 2px;
+}
+
+.btn:hover {
+  background: #1B7ADD;
+}
+
+.btn .badge {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  padding: 5px 9px;
+  border-radius: 50%;
+  background: #333;
+  color: white;
+}
+.pad{
+  height: 400px;
+  margin-top: 900px;
+  
+}
