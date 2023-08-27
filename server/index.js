@@ -13,7 +13,7 @@ const JwtStrategy = require('passport-jwt').Strategy,
     ExtractJwt = require('passport-jwt').ExtractJwt;
 const cors = require("cors")
 require('dotenv').config()
-
+const port = process.env.PORT || 3000;
 let Password = process.env.password
 
 //mongo connection
@@ -56,7 +56,7 @@ app.use("/orders", passport.authenticate("jwt", { session: false }), ordersRoute
 app.use("/user", userRouter.router)
 app.use("/payment", passport.authenticate("jwt", { session: false }), paymetRouter.router)
 
-app.listen(1234, () => {
+app.listen(port, () => {
     console.log("Server Started.....")
 })
-// http://localhost:1234/product
+// http://localhost:3000/product
