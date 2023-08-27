@@ -4,7 +4,7 @@ const Myorder = () => {
     let [productlist, updateProduct] = useState([])
 
     const getProduct = () => {
-        let url = `http://localhost:1234/orders`
+        let url = `https://shopping-app-tcbd-mri8dqsbk-deekshith-28.vercel.app/orders`
         fetch(url, {
             method: 'GET',
             headers: {
@@ -13,7 +13,7 @@ const Myorder = () => {
         })
             .then(res => res.json())
             .then(data => {
-                
+
                 updateProduct(data)
             })
     }
@@ -43,7 +43,7 @@ const Myorder = () => {
                                                     <th>Price</th>
                                                     <th>Quantity</th>
                                                     <th>Photo</th>
-                                
+
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -64,7 +64,7 @@ const Myorder = () => {
                                                 <td className="text-primary text-end" colspan="3"> Amount :{ele.amount}</td>
                                             </tbody>
                                         </table>
-                                       
+
                                     </div>
                                 </div>
                                 <div className="col-lg-4">

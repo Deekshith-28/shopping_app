@@ -15,11 +15,11 @@ const Cart = () => {
     let [address, pickAddress] = useState("")
     let [message, setMessage] = useState("")
     let { setCart } = Usecart()
- 
+
     // Fetch product  
     const getProduct = () => {
 
-        let url = `http://localhost:1234/cart/${localStorage.getItem("userid")}`
+        let url = `https://shopping-app-tcbd-mri8dqsbk-deekshith-28.vercel.app/cart/${localStorage.getItem("userid")}`
         fetch(url, {
             method: 'GET',
             headers: {
@@ -44,10 +44,10 @@ const Cart = () => {
         getProduct()
     }, [])
 
-  // Delete Item 
+    // Delete Item 
 
     const delitem = (id, name) => {
-        let url = `http://localhost:1234/cart/${id}`
+        let url = `https://shopping-app-tcbd-mri8dqsbk-deekshith-28.vercel.app/cart/${id}`
 
         fetch(url, {
             method: "DELETE",
@@ -77,7 +77,7 @@ const Cart = () => {
         if (product.qty == 0) {
             delitem(product._id, product.name)
         } else {
-            let url = `http://localhost:1234/cart/${product._id}`
+            let url = `https://shopping-app-tcbd-mri8dqsbk-deekshith-28.vercel.app/cart/${product._id}`
             fetch(url, {
                 headers: {
                     "Content-Type": "application/json",
@@ -96,13 +96,13 @@ const Cart = () => {
     }
 
     // place Order 
-    
+
     const placeorder = () => {
         if (fullname == "" || mobile == "" || address == "") {
             setMessage("Invalid input...")
         } else {
             setMessage("")
-            let url = `http://localhost:1234/orders`
+            let url = `https://shopping-app-tcbd-mri8dqsbk-deekshith-28.vercel.app/orders`
             let orderdata = { userID: localStorage.getItem("userid"), customername: fullname, mobile: +mobile, address: address, items: productlist, amount: total }
 
             fetch(url, {
@@ -116,7 +116,7 @@ const Cart = () => {
                 .then(res => res.json())
                 .then(data => {
                     if (data.message == "Orderd Sucessfully")
-                       Payment(total)
+                        Payment(total)
                     pickName("")
                     pickAddress("")
                     pickMobile("")

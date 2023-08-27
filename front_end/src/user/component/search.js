@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react'
 
-const Search = ({product}) => {
+const Search = ({ product }) => {
     let [value, setValue] = useState("")
-    
+
     const getItem = () => {
-        let url = "http://localhost:1234/product/search"
+        let url = "https://shopping-app-tcbd-mri8dqsbk-deekshith-28.vercel.app/product/search"
         fetch(url, {
             method: "PUT",
             headers: {
@@ -22,10 +22,10 @@ const Search = ({product}) => {
         getItem()
     }, [value])
 
-   
+
 
     return (
-            <input type="text" className="form-control " placeholder="search..." onChange={(e) => setValue(e.target.value)} />
+        <input type="text" className="form-control " placeholder="search..." onChange={(e) => setValue(e.target.value)} />
     )
 }
 

@@ -1,10 +1,10 @@
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-const Mydashboard=()=>{
+const Mydashboard = () => {
     let [productlist, updateProduct] = useState([])
     let [orderlist, updateOrder] = useState([])
     const getProduct = () => {
-        let url = `http://localhost:1234/product`
+        let url = `https://shopping-app-tcbd-mri8dqsbk-deekshith-28.vercel.app/product`
         fetch(url, {
             method: 'GET',
             headers: {
@@ -20,7 +20,7 @@ const Mydashboard=()=>{
 
 
     const getOrder = () => {
-        let url = `http://localhost:1234/orders`
+        let url = `https://shopping-app-tcbd-mri8dqsbk-deekshith-28.vercel.app/orders`
         fetch(url, {
             method: 'GET',
             headers: {
@@ -37,7 +37,7 @@ const Mydashboard=()=>{
         getProduct()
         getOrder()
     }, [])
-    return(
+    return (
         <div className="container mt-4">
 
             <div className="row">
@@ -57,14 +57,14 @@ const Mydashboard=()=>{
                 </div>
                 <div className="col-lg-3 text-center">
                     <Link to='/newproduct' className="text-decoration-none">
-                    <i className="fa fa-plus fa-3x text-info"></i>
-                    <h3 className="text-primary">Add product</h3>
+                        <i className="fa fa-plus fa-3x text-info"></i>
+                        <h3 className="text-primary">Add product</h3>
                     </Link>
                 </div>
                 <div className="col-lg-3 text-center">
                     <Link to='/productlist' className="text-decoration-none">
-                    <i className="fa fa-table fa-3x text-secondary"></i>
-                    <h3 className="text-primary">product list</h3>
+                        <i className="fa fa-table fa-3x text-secondary"></i>
+                        <h3 className="text-primary">product list</h3>
                     </Link>
                 </div>
             </div>
@@ -73,7 +73,7 @@ const Mydashboard=()=>{
 }
 export default Mydashboard
 
-const logout=()=>{
+const logout = () => {
     localStorage.clear()
     window.location.reload()
 }

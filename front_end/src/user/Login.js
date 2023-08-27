@@ -11,7 +11,7 @@ const Mylogin = () => {
             setMessage("Invalid Input !....")
         } else {
             setMessage("please wait processing ....")
-            let url = "http://localhost:1234/user/login";
+            let url = "https://shopping-app-tcbd-mri8dqsbk-deekshith-28.vercel.app/user/login";
             let data = {
                 email: email,
                 password: password

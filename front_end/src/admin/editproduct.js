@@ -9,7 +9,7 @@ const Editproduct = () => {
     let [pdetails, pickDetails] = useState("")
 
     const getproduct = () => {
-        let url = "http://localhost:1234/product/" + id
+        let url = "https://shopping-app-tcbd-mri8dqsbk-deekshith-28.vercel.app/product/" + id
         fetch(url, {
             method: "GET",
             headers: {
@@ -30,7 +30,7 @@ const Editproduct = () => {
     }, [])
 
     const edit = () => {
-        let url = "http://localhost:1234/product/" + id
+        let url = "https://shopping-app-tcbd-mri8dqsbk-deekshith-28.vercel.app/product/" + id
         let productinfo = { name: pname, price: pprice, details: pdetails, photo: pphoto }
         fetch(url, {
             method: "PATCH",
@@ -38,11 +38,11 @@ const Editproduct = () => {
                 "content-Type": "application/json",
                 'Authorization': localStorage.getItem("token")
             },
-            body:JSON.stringify(productinfo)
+            body: JSON.stringify(productinfo)
         })
             .then(res => res.json())
             .then(data => {
-                swal(" Updated","Sucessfully done","success")
+                swal(" Updated", "Sucessfully done", "success")
                 window.history.back()
             })
     }

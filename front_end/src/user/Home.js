@@ -18,7 +18,7 @@ const Myhome = () => {
     // Fetch products 
 
     const getProduct = () => {
-        let url = `http://localhost:1234/product`
+        let url = `https://shopping-app-tcbd-mri8dqsbk-deekshith-28.vercel.app/product`
         fetch(url, {
             method: 'GET',
             headers: {
@@ -32,10 +32,10 @@ const Myhome = () => {
             })
     }
 
-    
+
     const getCartProduct = () => {
 
-        let url = `http://localhost:1234/cart/${localStorage.getItem("userid")}`
+        let url = `https://shopping-app-tcbd-mri8dqsbk-deekshith-28.vercel.app/cart/${localStorage.getItem("userid")}`
         fetch(url, {
             method: 'GET',
             headers: {
@@ -62,7 +62,7 @@ const Myhome = () => {
         iteminfo["qty"] = 1
         iteminfo["userID"] = localStorage.getItem("userid")
 
-        let url = `http://localhost:1234/cart/add`
+        let url = `https://shopping-app-tcbd-mri8dqsbk-deekshith-28.vercel.app/cart/add`
         fetch(url, {
             headers: {
                 "Content-Type": "application/json",
@@ -158,7 +158,7 @@ const Myhome = () => {
                     </section>
                     <Footer></Footer>
                 </div>
-             } 
+            }
         </div >
 
     )

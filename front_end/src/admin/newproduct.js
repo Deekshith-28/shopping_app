@@ -51,7 +51,7 @@ const Newproduct = () => {
         if (formStatus == false) {
             swal("Invaild Input", "Please Enter Product", "warning")
         } else {
-            let url = "http://localhost:1234/product"
+            let url = "https://shopping-app-tcbd-mri8dqsbk-deekshith-28.vercel.app/product"
             let productinfo = { name: pname, price: pprice, details: pdetails, photo: pphoto }
 
             fetch(url, {

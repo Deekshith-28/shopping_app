@@ -5,8 +5,8 @@ const Filter = ({ page }) => {
 
     const filterData = () => {
         let obj = { priceF }
-       
-        let url = "http://localhost:1234/product/filter"
+
+        let url = "https://shopping-app-tcbd-mri8dqsbk-deekshith-28.vercel.app/product/filter"
         fetch(url, {
             method: "PUT",
             headers: {
@@ -31,7 +31,7 @@ const Filter = ({ page }) => {
             <option value="">Price filter...<p></p> </option>
             <option value="high">High - Low</option>
             <option value="low">Low - High</option>
-          
+
         </select>
 
     )

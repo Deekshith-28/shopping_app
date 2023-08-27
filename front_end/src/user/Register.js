@@ -6,14 +6,14 @@ const Newaccount = () => {
     let [emialid, setEmail] = useState("")
     let [password, setPassword] = useState("")
     let [message, setMessage] = useState("")
-    let nav=useNavigate()
+    let nav = useNavigate()
 
     const save = () => {
         if (fullname == "" || emialid == "" || password == "") {
             setMessage("Invalid Input !....")
         } else {
             setMessage("please wait processing ....")
-            let url = "http://localhost:1234/user/register"
+            let url = "https://shopping-app-tcbd-mri8dqsbk-deekshith-28.vercel.app/user/register"
             let userinfo = { name: fullname, email: emialid, password: password }
             fetch(url, {
                 headers: { 'Content-Type': 'Application/json' },
@@ -23,7 +23,7 @@ const Newaccount = () => {
                 .then(res => res.json())
                 .then(data => {
                     setMessage(`Register sucessfully`)
-                   nav("/Login")
+                    nav("/Login")
                 })
             setFullname(""); setEmail(""); setPassword("")
         }
