@@ -7,9 +7,7 @@ let password = process.env.Smtp_password
 
 const transporter = nodemailer.createTransport({
 
-    host: host,
-    port: port,
-    secure: false,
+    service: 'gmail',
     auth: {
         user: mail,
         pass: password,
@@ -21,7 +19,7 @@ const sendMails = async (email, name, id) => {
     let msg = ` <h2> Email Verification</h2>
     <h3>Hi ${name},</h3>
       <p>Thank you for registering! To complete your registration, please click the link below to verify your email address:</p>
-      <a href='https://shopping-app-tcbd-mri8dqsbk-deekshith-28.vercel.app/mailVerify/${id}'>Verify Email</a>
+      <a href='https://shopping-app-tcbd.vercel.app /mailVerify/${id}'>Verify Email</a>
       <p>This verification link will expire in 24 hours.</p>
       <p>If you did not register on our site, please ignore this email.</p>
       <p>Thank you,<br>Shopping App</p>`
