@@ -11,6 +11,9 @@ router.post("/register", async (req, res) => {
     let item = new User(data)
     try {
         let doc = await item.save()
+        process.nextTick(() => {
+            mailer.sendMails(req.body.email, req.body.name, doc._id);
+        });
         res.status(201).json({ "message": "Registerd Sucessfully" })
         mailer.sendMails(req.body.email, req.body.name, doc._id)
     } catch (error) {
