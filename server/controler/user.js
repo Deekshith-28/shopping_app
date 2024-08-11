@@ -4,16 +4,15 @@ const User = model.user
 const router = express.Router()
 const { hashSync, compareSync } = require("bcrypt")
 const jwt = require("jsonwebtoken")
+const mailer = require("../helpers/mailer")
 
 router.post("/register", async (req, res) => {
-    let data = { ...req.body, password: hashSync(req.body.password, 10) }
-
+    let data = { ...req.body, password: hashSync(req.body.password, 10), isVerify:0 }
     let item = new User(data)
     try {
         let doc = await item.save()
-
         res.status(201).json({ "message": "Registerd Sucessfully" })
-
+        mailer.sendMails(req.body.email, req.body.name, doc._id)
     } catch (error) {
         res.status(400).json({ "message": error.message })
     }
@@ -43,42 +42,14 @@ router.post("/login", async (req, res) => {
             "message": "Login sucessfully",
             "name": user.name,
             "userID": user._id,
+            "isVerify": user.isVerify,
             "token": "Bearer " + token
         }))
     } catch (error) {
-
         res.status(400).json(error.message)
     }
 
 
-})
-
-router.put("/", async (req, res) => {
-    try {
-        let doc = await User.findOne({ email: req.body.email })
-        if (doc != null) {
-            if (doc.password === req.body.password) {
-
-                res.status(201).json({ doc, "message": "Login sucessfully" });
-            } else {
-                res.status(401).json({ "message": "password incorrect" });
-            }
-        } else {
-            res.status(401).json({ "message": "email incorrect" });
-        }
-
-    } catch (err) {
-        res.status(400).json(err);
-    }
-})
-
-router.delete("/:id", async (req, res) => {
-    try {
-        let doc = await User.findByIdAndDelete({ _id: req.params.id })
-        res.status(201).json(doc);
-    } catch (err) {
-        res.status(400).json(err);
-    }
 })
 
 exports.router = router

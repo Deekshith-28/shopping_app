@@ -8,12 +8,13 @@ const cartRouter = require("./controler/cart")
 const ordersRouter = require("./controler/orders")
 const userRouter = require("./controler/user")
 const paymetRouter = require("./controler/payment")
+const Mail = require("./controler/mail")
 const passport = require("passport")
 const JwtStrategy = require('passport-jwt').Strategy,
     ExtractJwt = require('passport-jwt').ExtractJwt;
 const cors = require("cors")
 require('dotenv').config()
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 4000;
 let Password = process.env.password
 
 //mongo connection
@@ -49,14 +50,15 @@ passport.use(new JwtStrategy(opts,
         }
     }));
 
-    //********** */ API *******************
+//********** */ API *******************
 app.use("/product", passport.authenticate("jwt", { session: false }), productRouter.router)
 app.use("/cart", passport.authenticate("jwt", { session: false }), cartRouter.router)
 app.use("/orders", passport.authenticate("jwt", { session: false }), ordersRouter.router)
 app.use("/user", userRouter.router)
 app.use("/payment", passport.authenticate("jwt", { session: false }), paymetRouter.router)
+app.use("/mailVerify",Mail.router)
 
-app.listen(port, () => {
+app.listen(port, () => { 
     console.log("Server Started.....")
 })
-// http://localhost:3000/product
+// http://localhost:4000/product
