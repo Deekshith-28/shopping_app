@@ -14,7 +14,7 @@ const JwtStrategy = require('passport-jwt').Strategy,
     ExtractJwt = require('passport-jwt').ExtractJwt;
 const cors = require("cors")
 require('dotenv').config()
-const port = process.env.PORT || 4000;
+const port = process.env.PORT || 3000;
 let Password = process.env.password
 
 //mongo connection
@@ -61,4 +61,4 @@ app.use("/mailVerify",Mail.router)
 app.listen(port, () => { 
     console.log("Server Started.....")
 })
-// http://localhost:4000/product
+// http://localhost:3000/product
