@@ -9,7 +9,8 @@ const Editproduct = () => {
     let [pdetails, pickDetails] = useState("")
 
     const getproduct = () => {
-        let url = "https://shopping-app-tcbd-mri8dqsbk-deekshith-28.vercel.app/product/" + id
+
+        let url = "https://shopping-app-tcbd.vercel.app/product/" + id
         fetch(url, {
             method: "GET",
             headers: {
@@ -30,7 +31,7 @@ const Editproduct = () => {
     }, [])
 
     const edit = () => {
-        let url = "https://shopping-app-tcbd-mri8dqsbk-deekshith-28.vercel.app/product/" + id
+        let url = "https://shopping-app-tcbd.vercel.app/product/" + id
         let productinfo = { name: pname, price: pprice, details: pdetails, photo: pphoto }
         fetch(url, {
             method: "PATCH",

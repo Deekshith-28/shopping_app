@@ -4,7 +4,7 @@ import swal from "sweetalert";
 
 const Payment = (amount) => {
 
-    let url = `https://shopping-app-tcbd-mri8dqsbk-deekshith-28.vercel.app/payment/order`
+    let url = `https://shopping-app-tcbd.vercel.app/payment/order`
 
     function HandleRazorpay(data) {
 
@@ -16,7 +16,7 @@ const Payment = (amount) => {
             name: "Shopping App",
             handler: function (response) {
 
-                let Url = `https://shopping-app-tcbd-mri8dqsbk-deekshith-28.vercel.app/payment/verify`
+                let Url = `https://shopping-app-tcbd.vercel.app/payment/verify`
 
                 fetch(Url, {
                     headers: {

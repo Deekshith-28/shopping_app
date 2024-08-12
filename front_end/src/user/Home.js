@@ -8,6 +8,7 @@ import Slider from "./component/slider"
 import { useNavigate } from "react-router-dom";
 import { Usecart } from "./component/cartNotify";
 import Loader from "./component/loader";
+import UserHeader from "./UseHeader";
 
 const Myhome = () => {
     let [productlist, updateProduct] = useState([])
@@ -18,7 +19,7 @@ const Myhome = () => {
     // Fetch products 
 
     const getProduct = () => {
-        let url = `https://shopping-app-tcbd-mri8dqsbk-deekshith-28.vercel.app/product`
+        let url = `https://shopping-app-tcbd.vercel.app/product`
         fetch(url, {
             method: 'GET',
             headers: {
@@ -32,10 +33,9 @@ const Myhome = () => {
             })
     }
 
-
     const getCartProduct = () => {
 
-        let url = `https://shopping-app-tcbd-mri8dqsbk-deekshith-28.vercel.app/cart/${localStorage.getItem("userid")}`
+        let url = `https://shopping-app-tcbd.vercel.app/cart/${localStorage.getItem("userid")}`
         fetch(url, {
             method: 'GET',
             headers: {
@@ -58,11 +58,11 @@ const Myhome = () => {
         getCartProduct()
     }, [])
 
-    const addtocart = async (iteminfo) => {
+    const addtocart = (iteminfo) => {
         iteminfo["qty"] = 1
         iteminfo["userID"] = localStorage.getItem("userid")
 
-        let url = `https://shopping-app-tcbd-mri8dqsbk-deekshith-28.vercel.app/cart/add`
+        let url = `https://shopping-app-tcbd.vercel.app/cart/add`
         fetch(url, {
             headers: {
                 "Content-Type": "application/json",
@@ -96,7 +96,10 @@ const Myhome = () => {
 
     return (
 
-        <div >
+        <div style={{
+            background: 'linear-gradient(152deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%)'
+        }}>
+            <UserHeader></UserHeader>
             {loading ? <Loader></Loader> :
                 <div>
                     <Slider></Slider>
@@ -117,8 +120,8 @@ const Myhome = () => {
                                 productlist.slice(offset, offset + PER_PAGE).map((ele, ind) => {
 
                                     return (
-                                        <div className="col-lg-3 mb-5 mt-4 " key={ind}>
-                                            <div className="p-4 myitem p-3 mb-5 bg-light rounded">
+                                        <div className="col-lg-3 col-md-6 col-sm-6 mb-2 mt-2 " key={ind}>
+                                            <div className="p-4 myitem p-3 mb-2 bg-light rounded">
                                                 <img src={ele.photo} height="130" width="100%" />
                                                 <h4 className="text-center">{ele.name}</h4>
                                                 <p className="mt-3 mb-3 text-center">RS.{ele.price}</p>

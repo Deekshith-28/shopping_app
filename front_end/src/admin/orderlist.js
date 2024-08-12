@@ -4,7 +4,7 @@ const Myorder = () => {
     let [productlist, updateProduct] = useState([])
 
     const getProduct = () => {
-        let url = `https://shopping-app-tcbd-mri8dqsbk-deekshith-28.vercel.app/orders`
+        let url = `https://shopping-app-tcbd.vercel.app/orders`
         fetch(url, {
             method: 'GET',
             headers: {

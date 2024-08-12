@@ -6,7 +6,7 @@ const Filter = ({ page }) => {
     const filterData = () => {
         let obj = { priceF }
 
-        let url = "https://shopping-app-tcbd-mri8dqsbk-deekshith-28.vercel.app/product/filter"
+        let url = "https://shopping-app-tcbd.vercel.app/product/filter"
         fetch(url, {
             method: "PUT",
             headers: {

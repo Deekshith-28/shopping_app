@@ -5,7 +5,7 @@ import swal from "sweetalert"
 const Myproduct = () => {
     let [productlist, updateProduct] = useState([])
     const getProduct = () => {
-        let url = `https://shopping-app-tcbd-mri8dqsbk-deekshith-28.vercel.app/product`
+        let url = `https://shopping-app-tcbd.vercel.app/product`
         fetch(url, {
             method: 'GET',
             headers: {
@@ -24,7 +24,7 @@ const Myproduct = () => {
     }, [])
 
     const del = (id, name) => {
-        let url = `https://shopping-app-tcbd-mri8dqsbk-deekshith-28.vercel.app/product/${id}`
+        let url = `https://shopping-app-tcbd.vercel.app/product/${id}`
         fetch(url, {
             method: "DELETE",
             headers: {

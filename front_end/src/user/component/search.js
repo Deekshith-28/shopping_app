@@ -4,7 +4,8 @@ const Search = ({ product }) => {
     let [value, setValue] = useState("")
 
     const getItem = () => {
-        let url = "https://shopping-app-tcbd-mri8dqsbk-deekshith-28.vercel.app/product/search"
+
+        let url = "https://shopping-app-tcbd.vercel.app/product/search"
         fetch(url, {
             method: "PUT",
             headers: {
@@ -25,7 +26,19 @@ const Search = ({ product }) => {
 
 
     return (
-        <input type="text" className="form-control " placeholder="search..." onChange={(e) => setValue(e.target.value)} />
+
+        <input
+            type="text"
+            className="form-control"
+            placeholder="search..."
+            value={value}
+            onChange={(e) => setValue(e.target.value)}
+
+        />
+
+
+
+
     )
 }
 
